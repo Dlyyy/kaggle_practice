@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
+
+#https://blog.csdn.net/starter_____/article/details/79378548
 '''
 Author: Dly
 '''
@@ -110,8 +112,8 @@ datagen = ImageDataGenerator(
 datagen.fit(X_train)
 
 #train the modle
-import datetime
-starttime = datetime.datetime.now()
+# import datetime
+# starttime = datetime.datetime.now()
 
 history = model.fit_generator(
     datagen.flow(
@@ -122,15 +124,16 @@ history = model.fit_generator(
     steps_per_epoch=X_train.shape[0] // batch_size,
     callbacks=[learning_rate_reduction])
 
-endtime = datetime.datetime.now()
+# endtime = datetime.datetime.now()
 
-print ((endtime - starttime).seconds)
+# print ((endtime - starttime).seconds)
 
 # predict results
+print('Begin to predict for testing data ...')
 results = model.predict(test)
 
 # select the indix with the maximum probability
-results = np.argmax(results, axis=1)
+results = np.argmax(results, axis=1) #返回最值所在的索引（下标）
 
 results = pd.Series(results, name="Label")
 
