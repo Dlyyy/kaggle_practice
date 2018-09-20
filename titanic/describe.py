@@ -5,16 +5,13 @@
 #特征详情
 import numpy as np
 import pandas as pd
-import seaborn as sns
+import seaborn as sns #https://blog.csdn.net/suzyu12345/article/details/69029106
 import matplotlib.pyplot as plt
 
 
 root_path = 'E:/PythonProject01/kaggle_practice/titanic/input/'
-
 train_data = pd.read_csv('%s%s' % (root_path, 'train.csv'))
 test_data = pd.read_csv('%s%s' % (root_path, 'test.csv'))
-
-
 print(train_data.head(5),'\n\n\n')
 print(train_data.info(),'\n\n\n')
 print(test_data.info(),'\n\n\n')
